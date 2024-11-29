@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Froylan Rendón's Full-Stack Developer Portfolio">
+    
+    <title>Froylan Rendón - Full-Stack Developer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <!-- Animated Headline -->
+            <h1 class="animated-headline">
+                <span class="highlight">Froylan Rendón</span>
+            </h1>
+            <h2>Full-Stack Developer</h2>
+            <!-- Tagline -->
+            <p class="tagline">Building innovative digital solutions for the future.</p>
+            <!-- Call-to-Action Buttons -->
+            <div class="cta-buttons">
+                <button class="btn primary" onclick="scrollToSection('projects')">View Projects</button>
+                <button class="btn secondary" onclick="downloadCV()">Download CV</button>
+            </div>
+        </div>
+        <!-- Particle Background -->
+        <div id="particles-js"></div>
+    </section>
+    
+
+    <!-- About Me Section -->
+    <section id="about" class="about-me">
+        <div class="container">
+            <!-- Profile Illustration -->
+            <div class="profile-illustration">
+                <img src="assets/profile-animation.gif" alt="Profile Illustration">
+            </div>
+            <!-- About Content -->
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>
+                    Hello! I’m Froylan Rendón, a passionate full-stack developer with a love for building innovative and impactful digital solutions. 
+                    My career goals revolve around leveraging technology to create efficient, scalable, and user-friendly applications.
+                </p>
+                <!-- Social Icons -->
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/froylanrendon" target="_blank" class="icon linkedin">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project-gallery">
+            <!-- Project Card 1 -->
+            <div class="project-card" onclick="openModal(1)">
+                <h3>Maintenance Planner</h3>
+                <p>React Native</p>
+            </div>
+            <!-- Project Card 2 -->
+            <div class="project-card" onclick="openModal(2)">
+                <h3>Real-time Chat App</h3>
+                <p>Firebase</p>
+            </div>
+            <!-- Project Card 3 -->
+            <div class="project-card" onclick="openModal(3)">
+                <h3>Interactive Dashboard</h3>
+                <p>Node.js</p>
+            </div>
+            <!-- Project Card 4 -->
+            <div class="project-card" onclick="openModal(4)">
+                <h3>Collaborative To-Do List</h3>
+                <p>React</p>
+            </div>
+        </div>
+    
+        <!-- Modal for Project Details -->
+        <div id="project-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3 id="modal-title"></h3>
+                <p id="modal-description"></p>
+                <h4>Key Technologies:</h4>
+                <ul id="modal-tech"></ul>
+                <div id="modal-screenshots"></div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <!-- Python -->
+            <div class="skill" title="Proficient in Python">
+                <i class="fab fa-python"></i>
+                <p>Python</p>
+                <div class="tooltip">Proficient in Python for automation, data analysis, and web development.</div>
+            </div>
+            <!-- JavaScript -->
+            <div class="skill" title="Expert in JavaScript">
+                <i class="fab fa-js"></i>
+                <p>JavaScript</p>
+                <div class="tooltip">Expert in JavaScript for building dynamic web applications.</div>
+            </div>
+            <!-- React -->
+            <div class="skill" title="Advanced React Developer">
+                <i class="fab fa-react"></i>
+                <p>React</p>
+                <div class="tooltip">Advanced in React for creating reusable components and front-end frameworks.</div>
+            </div>
+            <!-- Node.js -->
+            <div class="skill" title="Experienced with Node.js">
+                <i class="fab fa-node-js"></i>
+                <p>Node.js</p>
+                <div class="tooltip">Experienced in building scalable backend systems with Node.js.</div>
+            </div>
+            <!-- HTML -->
+            <div class="skill" title="HTML Expertise">
+                <i class="fab fa-html5"></i>
+                <p>HTML</p>
+                <div class="tooltip">HTML expertise for creating structured and semantic web pages.</div>
+            </div>
+            <!-- CSS -->
+            <div class="skill" title="CSS Mastery">
+                <i class="fab fa-css3-alt"></i>
+                <p>CSS</p>
+                <div class="tooltip">CSS mastery for styling and responsive design.</div>
+            </div>
+            <!-- SQL -->
+            <div class="skill" title="SQL Knowledge">
+                <i class="fas fa-database"></i>
+                <p>SQL</p>
+                <div class="tooltip">Skilled in SQL for database management and querying.</div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>I'd love to hear from you! Reach out through the form below or connect with me on LinkedIn.</p>
+        
+        <!-- Contact Form -->
+        <form id="contact-form" onsubmit="return validateForm()">
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn submit-btn">Send Message</button>
+        </form>
+    
+        <!-- Social Links -->
+        <div class="contact-links">
+            <a href="mailto:froylanrendon@example.com" class="icon email" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://linkedin.com/in/froylanrendon" class="icon linkedin" title="LinkedIn" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    
+        <!-- Download CV Button -->
+        <div class="download-cv">
+            <button onclick="downloadCV()" class="btn download-btn">Download CV</button>
+        </div>
+    </section>
+    
+
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+</body>
+</html>
