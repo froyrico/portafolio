@@ -1,32 +1,42 @@
-function scrollToSection(sectionId) {
+// Smooth Scroll to Section
+const scrollToSection = (sectionId) => {
     document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-}
+};
 
-function downloadCV() {
-    alert("Download CV button clicked!");
-}
+document.querySelectorAll('[data-scroll]').forEach(button => {
+    button.addEventListener('click', () => {
+        const sectionId = button.getAttribute('data-scroll');
+        scrollToSection(sectionId);
+    });
+});
+
+// Download CV Functionality
+document.getElementById('download-cv-btn').addEventListener('click', () => {
+    const cvLink = "assets/Froylan_Rendon_CV.pdf";
+    window.location.href = cvLink;
+});
 
 // Initialize Particles.js
 particlesJS("particles-js", {
     particles: {
         number: {
-            value: 80,
+            value: 100, // Adjusted number of particles for a less cluttered look
             density: {
                 enable: true,
                 value_area: 800
             }
         },
         color: {
-            value: "#00ffcc"
+            value: "#00ccff" // Changed to match the color of the text "Froylan Rendon"
         },
         shape: {
-            type: "circle",
+            type: ["circle", "polygon"], // Changed to a mix of circle and polygon for an organic look
             stroke: {
                 width: 0,
                 color: "#000000"
             },
             polygon: {
-                nb_sides: 5
+                nb_sides: 6 // Changed to give a more organic/spore-like appearance
             },
             image: {
                 src: "img/github.svg",
@@ -35,37 +45,33 @@ particlesJS("particles-js", {
             }
         },
         opacity: {
-            value: 0.5,
-            random: false,
+            value: 0.6,
+            random: true,
             anim: {
-                enable: false,
-                speed: 1,
-                opacity_min: 0.1,
+                enable: true,
+                speed: 1.5, // Added a gentle animation to simulate spores pulsating
+                opacity_min: 0.3,
                 sync: false
             }
         },
         size: {
-            value: 5,
+            value: 6,
             random: true,
             anim: {
-                enable: false,
-                speed: 40,
-                size_min: 0.1,
+                enable: true,
+                speed: 4, // Added size animation for a more organic effect
+                size_min: 2,
                 sync: false
             }
         },
         line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#00ffcc",
-            opacity: 0.4,
-            width: 1
+            enable: false // Disabled lines for a more organic/spore-like appearance
         },
         move: {
             enable: true,
-            speed: 6,
+            speed: 2, // Reduced speed for a calmer floating effect
             direction: "none",
-            random: false,
+            random: true,
             straight: false,
             out_mode: "out",
             bounce: false,
@@ -81,7 +87,7 @@ particlesJS("particles-js", {
         events: {
             onhover: {
                 enable: true,
-                mode: "grab"
+                mode: "bubble" // Changed to "bubble" for a more interactive, organic feel
             },
             onclick: {
                 enable: true,
@@ -97,10 +103,10 @@ particlesJS("particles-js", {
                 }
             },
             bubble: {
-                distance: 400,
-                size: 40,
+                distance: 200,
+                size: 10,
                 duration: 2,
-                opacity: 8,
+                opacity: 0.8,
                 speed: 3
             },
             repulse: {
@@ -119,73 +125,67 @@ particlesJS("particles-js", {
 });
 
 // Project Data
-const projects = [
-    {
-        title: "Maintenance Planner",
-        description: "A mobile application built with React Native to help users schedule and track maintenance tasks.",
-        technologies: ["React Native", "Expo", "SQLite"],
-        screenshots: ["assets/maintenance-planner-1.png", "assets/maintenance-planner-2.png"]
-    },
-    {
-        title: "Real-time Chat App",
-        description: "A chat application with real-time messaging capabilities using Firebase.",
-        technologies: ["Firebase", "JavaScript", "HTML/CSS"],
-        screenshots: ["assets/chat-app-1.png", "assets/chat-app-2.png"]
-    },
-    {
-        title: "Interactive Dashboard",
-        description: "A real-time data visualization dashboard built with Node.js and D3.js.",
-        technologies: ["Node.js", "D3.js", "Express"],
-        screenshots: ["assets/dashboard-1.png", "assets/dashboard-2.png"]
-    },
-    {
-        title: "Collaborative To-Do List",
-        description: "A to-do application with user roles and authentication.",
-        technologies: ["React", "Node.js", "MongoDB"],
-        screenshots: ["assets/todo-1.png", "assets/todo-2.png"]
-    }
-];
+const projects = {
+    frontEnd: [
+        {
+            title: "Interactive Dashboard",
+            description: "A real-time data visualization dashboard built with React and D3.js.",
+            image: "assets/dashboard-1.png"
+        },
+        {
+            title: "Responsive Portfolio Website",
+            description: "A personal portfolio website created with HTML, CSS, and JavaScript, focusing on responsive design.",
+            image: "assets/portfolio.png"
+        }
+    ],
+    backEnd: [
+        {
+            title: "Real-time Chat App",
+            description: "A chat application with real-time messaging capabilities using Firebase and Node.js.",
+            image: "assets/chat-app-1.png"
+        },
+        {
+            title: "Collaborative To-Do List",
+            description: "A to-do application with user roles and authentication, built with React and Node.js.",
+            image: "assets/todo-1.png"
+        }
+    ],
+    dataMl: [
+        {
+            title: "Sales Analysis Dashboard",
+            description: "A PowerBI dashboard providing insights on sales data, trends, and KPIs.",
+            image: "assets/sales-dashboard.png"
+        },
+        {
+            title: "Machine Learning Model Deployment",
+            description: "Deployment of a predictive model using Google AI Platform and Flask for the API.",
+            image: "assets/ml-deployment.png"
+        }
+    ]
+};
 
-// Open Modal with Project Details
-function openModal(index) {
-    const modal = document.getElementById("project-modal");
-    const project = projects[index - 1];
-
-    // Update Modal Content
-    document.getElementById("modal-title").innerText = project.title;
-    document.getElementById("modal-description").innerText = project.description;
-    
-    // Update Technologies
-    const techList = document.getElementById("modal-tech");
-    techList.innerHTML = ""; // Clear previous content
-    project.technologies.forEach(tech => {
-        const li = document.createElement("li");
-        li.innerText = tech;
-        techList.appendChild(li);
+// Load Projects into HTML
+const loadProjects = () => {
+    const categories = Object.keys(projects);
+    categories.forEach(category => {
+        const categoryContainer = document.querySelector(`.projects-category.${category} .project-gallery`);
+        projects[category].forEach(project => {
+            const projectCard = document.createElement('div');
+            projectCard.classList.add('project-card');
+            projectCard.innerHTML = `
+                <h4>${project.title}</h4>
+                <p>${project.description}</p>
+                <img src="${project.image}" alt="${project.title} Screenshot">
+            `;
+            categoryContainer.appendChild(projectCard);
+        });
     });
+};
 
-    // Update Screenshots
-    const screenshotsDiv = document.getElementById("modal-screenshots");
-    screenshotsDiv.innerHTML = ""; // Clear previous content
-    project.screenshots.forEach(src => {
-        const img = document.createElement("img");
-        img.src = src;
-        img.alt = `${project.title} Screenshot`;
-        screenshotsDiv.appendChild(img);
-    });
-
-    // Show Modal
-    modal.style.display = "block";
-}
-
-// Close Modal
-function closeModal() {
-    const modal = document.getElementById("project-modal");
-    modal.style.display = "none";
-}
+document.addEventListener('DOMContentLoaded', loadProjects);
 
 // Validate Contact Form
-function validateForm() {
+const validateForm = () => {
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
@@ -196,7 +196,7 @@ function validateForm() {
     }
 
     // Basic email validation
-    const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
         alert("Please enter a valid email address.");
         return false;
@@ -204,11 +204,36 @@ function validateForm() {
 
     alert("Message sent successfully!");
     return true;
-}
+};
 
-// Download CV
-function downloadCV() {
-    // Replace with the actual CV file path
-    const cvLink = "assets/Froylan_Rendon_CV.pdf";
-    window.location.href = cvLink;
-}
+// Validate Contact Form with Real-time Feedback
+const contactForm = document.getElementById('contact-form');
+
+contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (validateForm()) {
+        alert('Message sent successfully!');
+        contactForm.reset();
+    }
+});
+
+const showError = (input, message) => {
+    const formGroup = input.parentElement;
+    formGroup.classList.add('error');
+    let error = formGroup.querySelector('.error-message');
+    if (!error) {
+        error = document.createElement('small');
+        error.className = 'error-message';
+        formGroup.appendChild(error);
+    }
+    error.textContent = message;
+};
+
+const clearError = (input) => {
+    const formGroup = input.parentElement;
+    formGroup.classList.remove('error');
+    const error = formGroup.querySelector('.error-message');
+    if (error) {
+        formGroup.removeChild(error);
+    }
+};

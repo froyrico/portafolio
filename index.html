@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Froylan Rendón's Full-Stack Developer Portfolio">
+    <meta name="description" content="Froylan Rendón's Full-Stack Developer Portfolio with expertise in React, Node.js, and more. Building innovative digital solutions for the future.">
     
-    <title>Froylan Rendón - Full-Stack Developer</title>
+    <title>Froylan Rendón - Full-Stack Developer Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 </head>
 <body>
     <!-- Home Section -->
@@ -23,167 +23,203 @@
             <p class="tagline">Building innovative digital solutions for the future.</p>
             <!-- Call-to-Action Buttons -->
             <div class="cta-buttons">
-                <button class="btn primary" onclick="scrollToSection('projects')">View Projects</button>
-                <button class="btn secondary" onclick="downloadCV()">Download CV</button>
+                <button class="btn primary" data-scroll="projects">View Projects</button>
+                <button class="btn secondary" id="download-cv-btn">Download CV</button>
             </div>
         </div>
         <!-- Particle Background -->
         <div id="particles-js"></div>
     </section>
-    
 
     <!-- About Me Section -->
-    <section id="about" class="about-me">
+    <section id="about-me" class="about-me">
         <div class="container">
-            <!-- Profile Illustration -->
             <div class="profile-illustration">
-                <img src="assets/profile-animation.gif" alt="Profile Illustration">
+                <img src="assets/profile-picture.png" alt="Froylan Rendon Profile Picture">
             </div>
-            <!-- About Content -->
             <div class="about-content">
                 <h2>About Me</h2>
-                <p>
-                    Hello! I’m Froylan Rendón, a passionate full-stack developer with a love for building innovative and impactful digital solutions. 
-                    My career goals revolve around leveraging technology to create efficient, scalable, and user-friendly applications.
-                </p>
-                <!-- Social Icons -->
+                <p>Hello! I'm Froylan Rendon, a passionate Full-Stack Developer with experience in front-end, back-end, and machine learning technologies. My goal is to create seamless digital experiences and bring innovative solutions to complex problems. I specialize in building interactive web applications, data visualizations, and deploying machine learning models.</p>
+                <p>I started my journey as a mechatronics engineer, which gave me a strong foundation in problem-solving and logical thinking. Over time, I transitioned into software development, and I've loved every bit of the challenge. Whether it's creating engaging user interfaces, architecting robust back-end systems, or deploying intelligent data models, I thrive on learning and pushing the boundaries of technology.</p>
+                <p>When I'm not coding, you can find me exploring new technologies, reading up on the latest in AI, or playing football. I'm excited to contribute to projects that make a difference in people's lives and can't wait to take on new challenges.</p>
                 <div class="social-links">
-                    <a href="https://linkedin.com/in/froylanrendon" target="_blank" class="icon linkedin">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    </a>
+                    <a href="https://www.linkedin.com/in/froylanrendon" class="icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/froylanrendon" class="icon"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
     </section>
-    
-    
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <h2>Projects</h2>
-        <div class="project-gallery">
-            <!-- Project Card 1 -->
-            <div class="project-card" onclick="openModal(1)">
-                <h3>Maintenance Planner</h3>
-                <p>React Native</p>
-            </div>
-            <!-- Project Card 2 -->
-            <div class="project-card" onclick="openModal(2)">
-                <h3>Real-time Chat App</h3>
-                <p>Firebase</p>
-            </div>
-            <!-- Project Card 3 -->
-            <div class="project-card" onclick="openModal(3)">
-                <h3>Interactive Dashboard</h3>
-                <p>Node.js</p>
-            </div>
-            <!-- Project Card 4 -->
-            <div class="project-card" onclick="openModal(4)">
-                <h3>Collaborative To-Do List</h3>
-                <p>React</p>
+        
+        <div class="projects-category">
+            <h3 class="front-end">Front-End Projects</h3>
+            <div class="project-gallery">
+                <!-- Front-End Projects -->
+                <div class="project-card" title="Interactive Dashboard">
+                    <h4>Interactive Dashboard</h4>
+                    <p>A real-time data visualization dashboard built with React and D3.js.</p>
+                    <img src="assets/dashboard-1.png" alt="Interactive Dashboard Screenshot">
+                </div>
+                <div class="project-card" title="Responsive Portfolio Website">
+                    <h4>Responsive Portfolio Website</h4>
+                    <p>A personal portfolio website created with HTML, CSS, and JavaScript, focusing on responsive design.</p>
+                    <img src="assets/portfolio.png" alt="Portfolio Screenshot">
+                </div>
             </div>
         </div>
-    
-        <!-- Modal for Project Details -->
-        <div id="project-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h3 id="modal-title"></h3>
-                <p id="modal-description"></p>
-                <h4>Key Technologies:</h4>
-                <ul id="modal-tech"></ul>
-                <div id="modal-screenshots"></div>
+        
+        <div class="projects-category">
+            <h3 class="back-end">Back-End Projects</h3>
+            <div class="project-gallery">
+                <!-- Back-End Projects -->
+                <div class="project-card" title="Real-time Chat Application">
+                    <h4>Real-time Chat App</h4>
+                    <p>A chat application with real-time messaging capabilities using Firebase and Node.js.</p>
+                    <img src="assets/chat-app-1.png" alt="Real-time Chat App Screenshot">
+                </div>
+                <div class="project-card" title="Collaborative To-Do List">
+                    <h4>Collaborative To-Do List</h4>
+                    <p>A to-do application with user roles and authentication, built with React and Node.js.</p>
+                    <img src="assets/todo-1.png" alt="To-Do List Screenshot">
+                </div>
+            </div>
+        </div>
+
+        <div class="projects-category">
+            <h3 class="data-ml">Data & Machine Learning Projects</h3>
+            <div class="project-gallery">
+                <!-- Machine Learning & Data Analysis Projects -->
+                <div class="project-card" title="Sales Analysis Dashboard">
+                    <h4>Sales Analysis Dashboard</h4>
+                    <p>A PowerBI dashboard providing insights on sales data, trends, and KPIs.</p>
+                    <img src="assets/sales-dashboard.png" alt="Sales Analysis Dashboard Screenshot">
+                </div>
+                <div class="project-card" title="Machine Learning Model Deployment">
+                    <h4>Machine Learning Model Deployment</h4>
+                    <p>Deployment of a predictive model using Google AI Platform and Flask for the API.</p>
+                    <img src="assets/ml-deployment.png" alt="Machine Learning Deployment Screenshot">
+                </div>
             </div>
         </div>
     </section>
-    
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <h2>Skills</h2>
-        <div class="skills-grid">
-            <!-- Python -->
-            <div class="skill" title="Proficient in Python">
-                <i class="fab fa-python"></i>
-                <p>Python</p>
-                <div class="tooltip">Proficient in Python for automation, data analysis, and web development.</div>
+        <div class="skills-category">
+            <h3 class="front-end">Front-End</h3>
+            <div class="skills-grid">
+                <!-- Front-End Skills -->
+                <div class="skill" title="Expert in JavaScript">
+                    <i class="fab fa-js"></i>
+                    <p>JavaScript</p>
+                    <div class="tooltip">Expert in JavaScript for building dynamic web applications.</div>
+                </div>
+                <div class="skill" title="Advanced React Developer">
+                    <i class="fab fa-react"></i>
+                    <p>React</p>
+                    <div class="tooltip">Advanced in React for creating reusable components and front-end frameworks.</div>
+                </div>
+                <div class="skill" title="HTML Expertise">
+                    <i class="fab fa-html5"></i>
+                    <p>HTML</p>
+                    <div class="tooltip">HTML expertise for creating structured and semantic web pages.</div>
+                </div>
+                <div class="skill" title="CSS Mastery">
+                    <i class="fab fa-css3-alt"></i>
+                    <p>CSS</p>
+                    <div class="tooltip">CSS mastery for styling and responsive design.</div>
+                </div>
             </div>
-            <!-- JavaScript -->
-            <div class="skill" title="Expert in JavaScript">
-                <i class="fab fa-js"></i>
-                <p>JavaScript</p>
-                <div class="tooltip">Expert in JavaScript for building dynamic web applications.</div>
+        </div>
+        
+        <div class="skills-category">
+            <h3 class="back-end">Back-End</h3>
+            <div class="skills-grid">
+                <!-- Back-End Skills -->
+                <div class="skill" title="Experienced with Node.js">
+                    <i class="fab fa-node-js"></i>
+                    <p>Node.js</p>
+                    <div class="tooltip">Experienced in building scalable backend systems with Node.js.</div>
+                </div>
+                <div class="skill" title="Flask Framework">
+                    <i class="fas fa-flask"></i>
+                    <p>Flask</p>
+                    <div class="tooltip">Experienced in Flask for backend web development.</div>
+                </div>
+                <div class="skill" title="C++ Programming">
+                    <i class="fas fa-code"></i>
+                    <p>C++</p>
+                    <div class="tooltip">Knowledge in C++ for system-level programming and backend development.</div>
+                </div>
             </div>
-            <!-- React -->
-            <div class="skill" title="Advanced React Developer">
-                <i class="fab fa-react"></i>
-                <p>React</p>
-                <div class="tooltip">Advanced in React for creating reusable components and front-end frameworks.</div>
-            </div>
-            <!-- Node.js -->
-            <div class="skill" title="Experienced with Node.js">
-                <i class="fab fa-node-js"></i>
-                <p>Node.js</p>
-                <div class="tooltip">Experienced in building scalable backend systems with Node.js.</div>
-            </div>
-            <!-- HTML -->
-            <div class="skill" title="HTML Expertise">
-                <i class="fab fa-html5"></i>
-                <p>HTML</p>
-                <div class="tooltip">HTML expertise for creating structured and semantic web pages.</div>
-            </div>
-            <!-- CSS -->
-            <div class="skill" title="CSS Mastery">
-                <i class="fab fa-css3-alt"></i>
-                <p>CSS</p>
-                <div class="tooltip">CSS mastery for styling and responsive design.</div>
-            </div>
-            <!-- SQL -->
-            <div class="skill" title="SQL Knowledge">
-                <i class="fas fa-database"></i>
-                <p>SQL</p>
-                <div class="tooltip">Skilled in SQL for database management and querying.</div>
+        </div>
+
+        <div class="skills-category">
+            <h3 class="data-ml">Machine Learning & Data Analysis</h3>
+            <div class="skills-grid">
+                <!-- Machine Learning & Data Analysis Skills -->
+                <div class="skill" title="Proficient in Python">
+                    <i class="fab fa-python"></i>
+                    <p>Python</p>
+                    <div class="tooltip">Proficient in Python for automation, data analysis, and web development.</div>
+                </div>
+                <div class="skill" title="PowerBI Expertise">
+                    <i class="fas fa-chart-bar"></i>
+                    <p>PowerBI</p>
+                    <div class="tooltip">Proficient in PowerBI for data visualization and analysis.</div>
+                </div>
+                <div class="skill" title="R Programming Language">
+                    <i class="fab fa-r-project"></i>
+                    <p>R</p>
+                    <div class="tooltip">Experienced in R for statistical analysis and data science projects.</div>
+                </div>
+                <div class="skill" title="Google AI Platform">
+                    <i class="fas fa-brain"></i>
+                    <p>Google AI Platform</p>
+                    <div class="tooltip">Familiar with Google AI Platform for machine learning model deployment.</div>
+                </div>
             </div>
         </div>
     </section>
-    
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Contact Me</h2>
-        <p>I'd love to hear from you! Reach out through the form below or connect with me on LinkedIn.</p>
-        
-        <!-- Contact Form -->
-        <form id="contact-form" onsubmit="return validateForm()">
+        <form id="contact-form">
             <div class="form-group">
-                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="text" id="name" name="name" placeholder="Name" required>
             </div>
             <div class="form-group">
-                <input type="email" id="email" placeholder="Your Email" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
             </div>
             <div class="form-group">
-                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                <select id="reason" name="reason" required>
+                    <option value="" disabled selected>Reason for Contact</option>
+                    <option value="consulting">Consulting</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="general">General Inquiry</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
             </div>
             <button type="submit" class="btn submit-btn">Send Message</button>
         </form>
-    
-        <!-- Social Links -->
-        <div class="contact-links">
-            <a href="mailto:froylanrendon@example.com" class="icon email" title="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://linkedin.com/in/froylanrendon" class="icon linkedin" title="LinkedIn" target="_blank">
-                <i class="fab fa-linkedin"></i>
-            </a>
-        </div>
-    
-        <!-- Download CV Button -->
-        <div class="download-cv">
-            <button onclick="downloadCV()" class="btn download-btn">Download CV</button>
-        </div>
     </section>
-    
+
+    <!-- Social Links -->
+    <div class="contact-links">
+        <a href="mailto:froylanrendon@example.com" class="icon email" title="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://linkedin.com/in/froylanrendon" class="icon linkedin" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin"></i>
+        </a>
+    </div>
 
     <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
