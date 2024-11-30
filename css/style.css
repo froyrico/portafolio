@@ -559,6 +559,17 @@ input:focus::placeholder, select:focus::placeholder, textarea:focus::placeholder
     }
 }
 
+    .project-gallery {
+        grid-template-columns: 1fr;
+        gap: 15px;
+}
+
+    .project-card {
+        max-width: 90%;
+}
+
+
+
 @media (max-width: 480px) {
     .skills h2, .projects h2 {
         font-size: 1.6rem;
@@ -572,7 +583,13 @@ input:focus::placeholder, select:focus::placeholder, textarea:focus::placeholder
     .tooltip {
         width: 150px;
     }
-    .project-card {
-        width: 100%;
+    .projects h2 {
+        font-size: 1.8rem;
+    }
+    .project-card h3 {
+        font-size: 1.2rem;
+    }
+    .project-card p {
+        font-size: 0.9rem;
     }
 }
