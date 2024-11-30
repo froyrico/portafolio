@@ -436,17 +436,17 @@ body {
 
 /* Contact Form */
 .form {
-    margin-bottom: 20px;
     display: grid;
-    gap: 20px;
-    justify-items: center;
-    align-items: start;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-group {
     margin-bottom: 20px;
     width: 100%;
     max-width: 600px;
+    margin: 0 auto 20px auto;
 }
 
 input, select, textarea {
