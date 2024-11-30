@@ -356,7 +356,7 @@ body {
     background: #1e1e1e;
     padding: 15px;
     border-radius: 10px;
-    width: 100%;
+    width: calc(100% - 40px);
     max-width: 200px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -533,6 +533,18 @@ input:focus::placeholder, select:focus::placeholder, textarea:focus::placeholder
 }
 
 /* Responsive Adjustments */
+@media (min-width: 1024px) {
+    .project-gallery {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+}
+
 @media (max-width: 768px) {
     .skills h2, .projects h2 {
         font-size: 1.8rem;
@@ -543,7 +555,7 @@ input:focus::placeholder, select:focus::placeholder, textarea:focus::placeholder
 }
 
     .project-gallery, .skills-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 15px;
 }
 
@@ -555,7 +567,10 @@ input:focus::placeholder, select:focus::placeholder, textarea:focus::placeholder
 
 @media (max-width: 480px) {
     .skills h2, .projects h2 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
+    }
+    .project-gallery, .skills-grid {
+        grid-template-columns: 1fr;
     }
     .skills-category h3, .projects-category h3 {
         font-size: 1.2rem;
