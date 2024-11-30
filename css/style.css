@@ -267,11 +267,13 @@ body {
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
     box-shadow: 0px 4px 15px rgba(0, 204, 255, 0.4);
+    z-index: 2;
 }
 
 .project-card img {
@@ -280,65 +282,39 @@ body {
     border-radius: 5px;
 }
 
-/* Modal Styling */
+/* Modal Styling for Project Details */
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
-    z-index: 10;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
 .modal-content {
-    background: #1e1e1e;
-    margin: 5% auto;
+    background: var(--background-light);
     padding: 20px;
     border-radius: 10px;
-    width: 90%;
     max-width: 600px;
+    width: 90%;
     color: white;
-    text-align: left;
+    position: relative;
 }
 
-.modal-content h3 {
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
     color: var(--primary-color);
-}
-
-.modal-content h4 {
-    margin-top: 20px;
-}
-
-.modal-content ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.modal-content ul li {
-    margin-bottom: 5px;
-}
-
-.modal-content img {
-    width: 100%;
-    margin-top: 10px;
-    border-radius: 5px;
-}
-
-/* Close Button */
-.modal-content .close {
-    color: #bbb;
-    font-size: 28px;
-    font-weight: bold;
-    float: right;
     cursor: pointer;
-}
-
-.modal-content .close:hover {
-    color: #fff;
 }
 
 /* Skills Section */
@@ -368,10 +344,11 @@ body {
 /* Skills Grid */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
     justify-items: center;
     align-items: start;
+    position: relative;
 }
 
 /* Skill Item */
@@ -384,11 +361,14 @@ body {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    position: relative;
+    z-index: 1;
 }
 
 .skill:hover {
     transform: translateY(-10px);
     box-shadow: 0px 4px 15px rgba(0, 204, 255, 0.4);
+    z-index: 2;
 }
 
 /* Skill Icons */
@@ -396,11 +376,13 @@ body {
     font-size: 2rem;
     color: var(--primary-color);
     margin-bottom: 10px;
+    z-index: 1;
 }
 
 .skill p {
     font-size: 1rem;
     color: var(--font-color);
+    z-index: 1;
 }
 
 /* Tooltip */
@@ -560,12 +542,12 @@ input:focus::placeholder, select:focus::placeholder, textarea:focus::placeholder
     }
 }
 
-    .project-gallery {
+    .project-gallery, .skills-grid {
         grid-template-columns: 1fr;
         gap: 15px;
 }
 
-    .project-card {
+    .project-card, .skill {
         max-width: 90%;
 }
 
@@ -584,13 +566,13 @@ input:focus::placeholder, select:focus::placeholder, textarea:focus::placeholder
     .tooltip {
         width: 150px;
     }
-    .projects h2 {
+    .projects h2, .skills h2 {
         font-size: 1.8rem;
     }
-    .project-card h3 {
+    .project-card h3, .skill p {
         font-size: 1.2rem;
     }
-    .project-card p {
+    .project-card p, .skill p {
         font-size: 0.9rem;
     }
 }
