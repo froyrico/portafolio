@@ -221,6 +221,8 @@ body {
     color: white;
     text-align: center;
     padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .projects h2 {
@@ -252,10 +254,11 @@ body {
 
 /* Project Gallery */
 .project-gallery {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
-    justify-content: center;
+    justify-items: center;
+    align-items: start;
 }
 
 .project-card {
@@ -267,6 +270,7 @@ body {
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
     z-index: 1;
 }
 
