@@ -16,62 +16,61 @@ document.getElementById('download-cv-btn').addEventListener('click', () => {
     window.location.href = cvLink;
 });
 
-// Initialize Particles.js
+// Initialize Particles.js with custom settings for mobile
 particlesJS("particles-js", {
     particles: {
         number: {
-            value: 100, // Adjusted number of particles for a less cluttered look
+            value: window.innerWidth > 768 ? 150 : 80,  // Reduce number of particles on mobile
             density: {
                 enable: true,
                 value_area: 800
             }
         },
         color: {
-            value: "#00ccff" // Changed to match the color of the text "Froylan Rendon"
+            value: "#00ccff"
         },
         shape: {
-            type: ["circle", "polygon"], // Changed to a mix of circle and polygon for an organic look
+            type: "circle",
             stroke: {
                 width: 0,
                 color: "#000000"
             },
             polygon: {
-                nb_sides: 6 // Changed to give a more organic/spore-like appearance
-            },
-            image: {
-                src: "img/github.svg",
-                width: 100,
-                height: 100
+                nb_sides: 5
             }
         },
         opacity: {
-            value: 0.6,
-            random: true,
+            value: 0.5,
+            random: false,
             anim: {
-                enable: true,
-                speed: 1.5, // Added a gentle animation to simulate spores pulsating
-                opacity_min: 0.3,
+                enable: false,
+                speed: 1,
+                opacity_min: 0.1,
                 sync: false
             }
         },
         size: {
-            value: 6,
+            value: 5,
             random: true,
             anim: {
                 enable: true,
-                speed: 4, // Added size animation for a more organic effect
-                size_min: 2,
+                speed: 2,
+                size_min: 0.1,
                 sync: false
             }
         },
         line_linked: {
-            enable: false // Disabled lines for a more organic/spore-like appearance
+            enable: true,
+            distance: 150,
+            color: "#00ccff",
+            opacity: 0.4,
+            width: 1
         },
         move: {
             enable: true,
-            speed: 2, // Reduced speed for a calmer floating effect
+            speed: 2,
             direction: "none",
-            random: true,
+            random: false,
             straight: false,
             out_mode: "out",
             bounce: false,
@@ -87,7 +86,7 @@ particlesJS("particles-js", {
         events: {
             onhover: {
                 enable: true,
-                mode: "bubble" // Changed to "bubble" for a more interactive, organic feel
+                mode: "grab"
             },
             onclick: {
                 enable: true,
@@ -103,10 +102,10 @@ particlesJS("particles-js", {
                 }
             },
             bubble: {
-                distance: 200,
-                size: 10,
+                distance: 400,
+                size: 40,
                 duration: 2,
-                opacity: 0.8,
+                opacity: 8,
                 speed: 3
             },
             repulse: {
@@ -123,6 +122,7 @@ particlesJS("particles-js", {
     },
     retina_detect: true
 });
+
 
 // Project Data
 const projects = {
