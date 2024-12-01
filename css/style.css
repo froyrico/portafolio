@@ -418,8 +418,11 @@ body {
 
 .project-card img {
     width: 100%;
-    margin-top: 10px;
-    border-radius: 5px;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 /* Iconos de tecnologías */
