@@ -4,44 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Froylan Rendón's Full-Stack Developer Portfolio with expertise in React, Node.js, and more. Building innovative digital solutions for the future.">
-    
+
     <title>Froylan Rendón - Full-Stack Developer Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+
 <body>
     <!-- Home Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero section-transition">
         <div class="hero-content">
-            <!-- Animated Headline -->
             <h1 class="animated-headline">
                 <span class="highlight">Froylan Rendón</span>
             </h1>
             <h2>Full-Stack Developer</h2>
-            <!-- Tagline -->
             <p class="tagline">Building innovative digital solutions for the future.</p>
-            <!-- Call-to-Action Buttons -->
             <div class="cta-buttons">
-                <button class="btn primary" data-scroll="projects">View Projects</button>
-                <button class="btn secondary" id="download-cv-btn">Download CV</button>
+                <button class="btn primary" data-scroll="projects">
+                    <i class="fas fa-project-diagram"></i> View Projects
+                </button>
+                <button class="btn secondary" id="download-cv-btn">
+                    <i class="fas fa-download"></i> Download CV
+                </button>
             </div>
         </div>
-        <!-- Particle Background -->
         <div id="particles-js"></div>
     </section>
 
     <!-- About Me Section -->
-    <section id="about-me" class="about-me">
+    <section id="about-me" class="about-me section-transition">
         <div class="container">
             <div class="profile-illustration">
                 <img src="assets/profile-picture.png" alt="Froylan Rendon Profile Picture">
             </div>
             <div class="about-content">
                 <h2>About Me</h2>
-                <p>Hello! I'm Froylan Rendon, a passionate Full-Stack Developer with experience in front-end, back-end, and machine learning technologies. My goal is to create seamless digital experiences and bring innovative solutions to complex problems. I specialize in building interactive web applications, data visualizations, and deploying machine learning models.</p>
-                <p>I started my journey as a mechatronics engineer, which gave me a strong foundation in problem-solving and logical thinking. Over time, I transitioned into software development, and I've loved every bit of the challenge. Whether it's creating engaging user interfaces, architecting robust back-end systems, or deploying intelligent data models, I thrive on learning and pushing the boundaries of technology.</p>
-                <p>When I'm not coding, you can find me exploring new technologies, reading up on the latest in AI, or playing football. I'm excited to contribute to projects that make a difference in people's lives and can't wait to take on new challenges.</p>
+                <div class="about-details">
+                    <div class="about-item">
+                        <i class="fas fa-code"></i>
+                        <p>Full-Stack Developer experienced in building web applications and machine learning models.</p>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-robot"></i>
+                        <p>Background in Mechatronics Engineering, blending hardware and software for innovative solutions.</p>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-futbol"></i>
+                        <p>Football enthusiast, always up for a game when I'm not coding or exploring AI technologies.</p>
+                    </div>
+                </div>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/froylanrendon" class="icon"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/froylanrendon" class="icon"><i class="fab fa-github"></i></a>
@@ -51,163 +63,287 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects section-transition">
         <h2>Projects</h2>
-        
+
+        <!-- Front-End Projects -->
         <div class="projects-category">
             <h3 class="front-end">Front-End Projects</h3>
             <div class="project-gallery">
-                <!-- Front-End Projects -->
-                <div class="project-card" title="Interactive Dashboard">
-                    <h4>Interactive Dashboard</h4>
-                    <p>A real-time data visualization dashboard built with React and D3.js.</p>
-                    <img src="assets/dashboard-1.png" alt="Interactive Dashboard Screenshot">
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <div class="project-card-front">
+                            <img src="assets/online-education.jpg" alt="Plataforma de Educación en Línea">
+                            <h3>Plataforma de Educación en Línea</h3>
+                            <p>Plataforma educativa desarrollada para ofrecer cursos en línea.</p>
+                        </div>
+                        <div class="project-card-back">
+                            <p>Una plataforma para la educación en línea que permite a los usuarios acceder a una amplia variedad de cursos. Cuenta con funcionalidades como videoconferencias, foros de discusión y herramientas interactivas para mejorar la experiencia del aprendizaje.</p>
+                            <div class="tech-icons">
+                                <i class="fab fa-react"></i>
+                                <i class="fab fa-js"></i>
+                                <i class="fab fa-html5"></i>
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-card" title="Responsive Portfolio Website">
-                    <h4>Responsive Portfolio Website</h4>
-                    <p>A personal portfolio website created with HTML, CSS, and JavaScript, focusing on responsive design.</p>
-                    <img src="assets/portfolio.png" alt="Portfolio Screenshot">
-                </div>
-            </div>
-        </div>
-        
-        <div class="projects-category">
-            <h3 class="back-end">Back-End Projects</h3>
-            <div class="project-gallery">
-                <!-- Back-End Projects -->
-                <div class="project-card" title="Real-time Chat Application">
-                    <h4>Real-time Chat App</h4>
-                    <p>A chat application with real-time messaging capabilities using Firebase and Node.js.</p>
-                    <img src="assets/chat-app-1.png" alt="Real-time Chat App Screenshot">
-                </div>
-                <div class="project-card" title="Collaborative To-Do List">
-                    <h4>Collaborative To-Do List</h4>
-                    <p>A to-do application with user roles and authentication, built with React and Node.js.</p>
-                    <img src="assets/todo-1.png" alt="To-Do List Screenshot">
+
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <div class="project-card-front">
+                            <img src="assets/travel-app.jpg" alt="Aplicación de Viajes con Mapas Interactivos">
+                            <h3>Aplicación de Viajes con Mapas Interactivos</h3>
+                            <p>Aplicación de viajes con mapas y funciones interactivas para planificar recorridos.</p>
+                        </div>
+                        <div class="project-card-back">
+                            <p>Una aplicación interactiva que permite a los usuarios planificar viajes y explorar diferentes destinos mediante mapas interactivos, ofreciendo una visión clara de rutas, destinos y actividades cercanas.</p>
+                            <div class="tech-icons">
+                                <i class="fab fa-react"></i>
+                                <i class="fab fa-js"></i>
+                                <i class="fab fa-html5"></i>
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- Back-End Projects -->
+        <div class="projects-category">
+            <h3 class="back-end">Back-End Projects</h3>
+            <div class="project-gallery">
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <div class="project-card-front">
+                            <img src="assets/real-time-chat.jpg" alt="Chat en Tiempo Real con Encriptación">
+                            <h3>Chat en Tiempo Real con Encriptación</h3>
+                            <p>Aplicación de chat con encriptación para la privacidad de los mensajes.</p>
+                        </div>
+                        <div class="project-card-back">
+                            <p>Desarrollé un sistema de chat en tiempo real que incorpora encriptación para garantizar la privacidad de las comunicaciones. Utiliza WebSockets para proporcionar mensajes instantáneos y un backend basado en Flask para gestionar la autenticación y el encriptado.</p>
+                            <div class="tech-icons">
+                                <i class="fab fa-js"></i>
+                                <i class="fab fa-html5"></i>
+                                <i class="fab fa-css3-alt"></i>
+                                <i class="fab fa-python"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <div class="project-card-front">
+                            <img src="assets/image-processing.jpg" alt="Servicio de Procesamiento de Imágenes">
+                            <h3>Servicio de Procesamiento de Imágenes</h3>
+                            <p>Servicio para procesar y analizar imágenes de manera automatizada.</p>
+                        </div>
+                        <div class="project-card-back">
+                            <p>Este servicio permite a los usuarios subir imágenes para su análisis y mejora mediante técnicas de visión por computadora, tales como filtros de color, detección de bordes y reconocimiento de objetos.</p>
+                            <div class="tech-icons">
+                                <i class="fab fa-html5"></i>
+                                <i class="fab fa-css3-alt"></i>
+                                <i class="fab fa-js"></i>
+                                <i class="fab fa-python"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data & Machine Learning Projects -->
         <div class="projects-category">
             <h3 class="data-ml">Data & Machine Learning Projects</h3>
             <div class="project-gallery">
-                <!-- Machine Learning & Data Analysis Projects -->
-                <div class="project-card" title="Sales Analysis Dashboard">
-                    <h4>Sales Analysis Dashboard</h4>
-                    <p>A PowerBI dashboard providing insights on sales data, trends, and KPIs.</p>
-                    <img src="assets/sales-dashboard.png" alt="Sales Analysis Dashboard Screenshot">
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <div class="project-card-front">
+                            <img src="assets/sales-analysis,jpg" alt="Análisis Predictivo de Ventas">
+                            <h3>Análisis Predictivo de Ventas</h3>
+                            <p>Modelo de análisis predictivo para prever tendencias de ventas.</p>
+                        </div>
+                        <div class="project-card-back">
+                            <p>Construí un modelo predictivo que analiza las ventas y predice el comportamiento futuro de los clientes, utilizando técnicas de Machine Learning y Google AI Platform. El dashboard se creó en PowerBI para visualización en tiempo real.</p>
+                            <div class="tech-icons">
+                                <i class="fab fa-html5"></i>
+                                <i class="fab fa-css3-alt"></i>
+                                <i class="fab fa-js"></i>
+                                <i class="fab fa-python"></i>
+                                <i class="fas fa-chart-bar"></i>
+                                <i class="fab fa-google"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-card" title="Machine Learning Model Deployment">
-                    <h4>Machine Learning Model Deployment</h4>
-                    <p>Deployment of a predictive model using Google AI Platform and Flask for the API.</p>
-                    <img src="assets/ml-deployment.png" alt="Machine Learning Deployment Screenshot">
+
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <div class="project-card-front">
+                            <img src="assets/sentiment-analysis.jpg" alt="Clasificación de Sentimientos en Redes Sociales">
+                            <h3>Clasificación de Sentimientos en Redes Sociales</h3>
+                            <p>Proyecto para clasificar los sentimientos de los usuarios en las redes sociales.</p>
+                        </div>
+                        <div class="project-card-back">
+                            <p>Este proyecto utiliza técnicas de procesamiento de lenguaje natural (NLP) para analizar y clasificar los sentimientos de los usuarios en redes sociales, brindando métricas sobre opiniones positivas, negativas y neutras.</p>
+                            <div class="tech-icons">
+                                <i class="fab fa-python"></i>
+                                <i class="fab fa-js"></i>
+                                <i class="fab fa-html5"></i>
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <h2>Skills</h2>
-        <div class="skills-category">
-            <h3 class="front-end">Front-End</h3>
-            <div class="skills-grid">
-                <!-- Front-End Skills -->
-                <div class="skill" title="Expert in JavaScript">
-                    <i class="fab fa-js"></i>
-                    <p>JavaScript</p>
-                    <div class="tooltip">Expert in JavaScript for building dynamic web applications.</div>
-                </div>
-                <div class="skill" title="Advanced React Developer">
-                    <i class="fab fa-react"></i>
-                    <p>React</p>
-                    <div class="tooltip">Advanced in React for creating reusable components and front-end frameworks.</div>
-                </div>
-                <div class="skill" title="HTML Expertise">
-                    <i class="fab fa-html5"></i>
-                    <p>HTML</p>
-                    <div class="tooltip">HTML expertise for creating structured and semantic web pages.</div>
-                </div>
-                <div class="skill" title="CSS Mastery">
-                    <i class="fab fa-css3-alt"></i>
-                    <p>CSS</p>
-                    <div class="tooltip">CSS mastery for styling and responsive design.</div>
-                </div>
-            </div>
-        </div>
+    <section id="skills" class="skills section-transition">
+        <h2>My Skills</h2>
         
+        <!-- Front-End Skills -->
         <div class="skills-category">
-            <h3 class="back-end">Back-End</h3>
-            <div class="skills-grid">
-                <!-- Back-End Skills -->
-                <div class="skill" title="Experienced with Node.js">
-                    <i class="fab fa-node-js"></i>
-                    <p>Node.js</p>
-                    <div class="tooltip">Experienced in building scalable backend systems with Node.js.</div>
+            <h3>Front-End Skills</h3>
+            <div class="skills-container">
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>JavaScript</span><span class="skill-years">(+4 años)</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-skill-level="80"></div>
+                    </div>
                 </div>
-                <div class="skill" title="Flask Framework">
-                    <i class="fas fa-flask"></i>
-                    <p>Flask</p>
-                    <div class="tooltip">Experienced in Flask for backend web development.</div>
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>HTML/CSS</span><span class="skill-years">(+4 años)</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-skill-level="85"></div>
+                    </div>
                 </div>
-                <div class="skill" title="C++ Programming">
-                    <i class="fas fa-code"></i>
-                    <p>C++</p>
-                    <div class="tooltip">Knowledge in C++ for system-level programming and backend development.</div>
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>React</span><span class="skill-years">(2 años)</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-skill-level="70"></div>
+                    </div>
                 </div>
             </div>
         </div>
-
+    
+        <!-- Back-End Skills -->
         <div class="skills-category">
-            <h3 class="data-ml">Machine Learning & Data Analysis</h3>
-            <div class="skills-grid">
-                <!-- Machine Learning & Data Analysis Skills -->
-                <div class="skill" title="Proficient in Python">
-                    <i class="fab fa-python"></i>
-                    <p>Python</p>
-                    <div class="tooltip">Proficient in Python for automation, data analysis, and web development.</div>
+            <h3>Back-End Skills</h3>
+            <div class="skills-container">
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>Node.js</span><span class="skill-years">(2 años)</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-skill-level="70"></div>
+                    </div>
                 </div>
-                <div class="skill" title="PowerBI Expertise">
-                    <i class="fas fa-chart-bar"></i>
-                    <p>PowerBI</p>
-                    <div class="tooltip">Proficient in PowerBI for data visualization and analysis.</div>
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>Flask</span><span class="skill-years">(1 año)</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-skill-level="60"></div>
+                    </div>
                 </div>
-                <div class="skill" title="R Programming Language">
-                    <i class="fab fa-r-project"></i>
-                    <p>R</p>
-                    <div class="tooltip">Experienced in R for statistical analysis and data science projects.</div>
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>C++</span><span class="skill-years">(4 años)</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-skill-level="75"></div>
+                    </div>
                 </div>
-                <div class="skill" title="Google AI Platform">
-                    <i class="fas fa-brain"></i>
-                    <p>Google AI Platform</p>
-                    <div class="tooltip">Familiar with Google AI Platform for machine learning model deployment.</div>
+            </div>
+        </div>
+    
+        <!-- Machine Learning Skills -->
+        <div class="skills-category">
+            <h3>Machine Learning Skills</h3>
+            <div class="skills-container">
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>Python</span><span class="skill-years">(+5 años)</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-skill-level="90"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>R</span><span class="skill-years">(+1 año)</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-skill-level="50"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>PowerBI</span><span class="skill-years">(2 años)</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-skill-level="65"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Data Base Skills -->
+        <div class="skills-category">
+            <h3>Data Base Skills</h3>
+            <div class="skills-container">
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>SQL</span><span class="skill-years">(+4 años)</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-skill-level="80"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>Firebase</span><span class="skill-years">(1 año)</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-skill-level="60"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact section-transition">
         <h2>Contact Me</h2>
-        <form id="contact-form">
+        <div class="divider"></div>
+        <p>Feel free to get in touch with me by using the form below.</p>
+        <form id="contact-form" class="form">
             <div class="form-group">
-                <input type="text" id="name" name="name" placeholder="Name" required>
+                <input type="text" id="name" placeholder="Your Name">
+                <i class="form-icon fas fa-check-circle" id="name-icon"></i>
             </div>
             <div class="form-group">
-                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="email" id="email" placeholder="Your Email">
+                <i class="form-icon fas fa-check-circle" id="email-icon"></i>
             </div>
             <div class="form-group">
-                <select id="reason" name="reason" required>
-                    <option value="" disabled selected>Reason for Contact</option>
-                    <option value="consulting">Consulting</option>
-                    <option value="collaboration">Collaboration</option>
-                    <option value="general">General Inquiry</option>
-                </select>
+                <textarea id="message" placeholder="Your Message"></textarea>
+                <i class="form-icon fas fa-check-circle" id="message-icon"></i>
             </div>
-            <div class="form-group">
-                <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
-            </div>
-            <button type="submit" class="btn submit-btn">Send Message</button>
+            <button type="submit" class="btn submit-btn">
+                <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+            <div id="loading-spinner" style="display: none;">Sending...</div>
         </form>
     </section>
 

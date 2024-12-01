@@ -1,26 +1,8 @@
-// Smooth Scroll to Section
-const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-};
-
-document.querySelectorAll('[data-scroll]').forEach(button => {
-    button.addEventListener('click', () => {
-        const sectionId = button.getAttribute('data-scroll');
-        scrollToSection(sectionId);
-    });
-});
-
-// Download CV Functionality
-document.getElementById('download-cv-btn').addEventListener('click', () => {
-    const cvLink = "assets/Froylan_Rendon_CV.pdf";
-    window.location.href = cvLink;
-});
-
-// Initialize Particles.js with custom settings for mobile
+// Inicializar Particles.js con configuraciones personalizadas para móvil
 particlesJS("particles-js", {
     particles: {
         number: {
-            value: window.innerWidth > 768 ? 150 : 80,  // Reduce number of particles on mobile
+            value: window.innerWidth > 768 ? 150 : 80,
             density: {
                 enable: true,
                 value_area: 800
@@ -123,117 +105,131 @@ particlesJS("particles-js", {
     retina_detect: true
 });
 
-
-// Project Data
-const projects = {
-    frontEnd: [
-        {
-            title: "Interactive Dashboard",
-            description: "A real-time data visualization dashboard built with React and D3.js.",
-            image: "assets/dashboard-1.png"
-        },
-        {
-            title: "Responsive Portfolio Website",
-            description: "A personal portfolio website created with HTML, CSS, and JavaScript, focusing on responsive design.",
-            image: "assets/portfolio.png"
-        }
-    ],
-    backEnd: [
-        {
-            title: "Real-time Chat App",
-            description: "A chat application with real-time messaging capabilities using Firebase and Node.js.",
-            image: "assets/chat-app-1.png"
-        },
-        {
-            title: "Collaborative To-Do List",
-            description: "A to-do application with user roles and authentication, built with React and Node.js.",
-            image: "assets/todo-1.png"
-        }
-    ],
-    dataMl: [
-        {
-            title: "Sales Analysis Dashboard",
-            description: "A PowerBI dashboard providing insights on sales data, trends, and KPIs.",
-            image: "assets/sales-dashboard.png"
-        },
-        {
-            title: "Machine Learning Model Deployment",
-            description: "Deployment of a predictive model using Google AI Platform and Flask for the API.",
-            image: "assets/ml-deployment.png"
-        }
-    ]
+// Smooth Scroll to Section with Transition Effect
+const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    
+    // Desplazar suavemente hacia la sección
+    section.scrollIntoView({ behavior: 'smooth' });
 };
 
-// Load Projects into HTML
-const loadProjects = () => {
-    const categories = Object.keys(projects);
-    categories.forEach(category => {
-        const categoryContainer = document.querySelector(`.projects-category.${category} .project-gallery`);
-        projects[category].forEach(project => {
-            const projectCard = document.createElement('div');
-            projectCard.classList.add('project-card');
-            projectCard.innerHTML = `
-                <h4>${project.title}</h4>
-                <p>${project.description}</p>
-                <img src="${project.image}" alt="${project.title} Screenshot">
-            `;
-            categoryContainer.appendChild(projectCard);
-        });
+// Aplicar el efecto a los botones con la clase data-scroll
+document.querySelectorAll('[data-scroll]').forEach(button => {
+    button.addEventListener('click', () => {
+        const sectionId = button.getAttribute('data-scroll');
+        scrollToSection(sectionId);
+    });
+});
+
+// Añadir las clases de transición para cada sección visible al hacer scroll
+const sections = document.querySelectorAll('section');
+
+const revealSections = () => {
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop <= window.innerHeight * 0.8) {
+            section.classList.add('section-visible');
+        }
     });
 };
 
-document.addEventListener('DOMContentLoaded', loadProjects);
+// Ejecutar revealSections al cargar la página y al hacer scroll
+window.addEventListener('DOMContentLoaded', revealSections);
+window.addEventListener('scroll', revealSections);
 
-// Validate Contact Form
+document.addEventListener('DOMContentLoaded', () => {
+    const skillBars = document.querySelectorAll('.skill-bar');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                const skillLevel = bar.getAttribute('data-skill-level');
+                bar.style.width = skillLevel + '%';
+                observer.unobserve(bar); // Dejar de observar una vez que la animación se ha ejecutado
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    skillBars.forEach(bar => {
+        observer.observe(bar);
+    });
+});
+
+
+// Funcionalidad para descargar el CV
+document.getElementById('download-cv-btn').addEventListener('click', () => {
+    const cvLink = "assets/Froylan_Rendon_CV.pdf";
+    window.location.href = cvLink;
+});
+
+// Validar el Formulario de Contacto con Real-time Feedback
 const validateForm = () => {
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const message = document.getElementById("message");
 
-    if (!name || !email || !message) {
-        alert("Please fill out all fields before submitting.");
-        return false;
+    let isValid = true;
+
+    // Validar Nombre
+    if (name.value.trim() !== "") {
+        name.parentElement.classList.add("valid");
+        document.getElementById("name-icon").style.opacity = "1";
+    } else {
+        name.parentElement.classList.remove("valid");
+        document.getElementById("name-icon").style.opacity = "0";
+        isValid = false;
     }
 
-    // Basic email validation
+    // Validar Email
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        alert("Please enter a valid email address.");
-        return false;
+    if (emailPattern.test(email.value.trim())) {
+        email.parentElement.classList.add("valid");
+        document.getElementById("email-icon").style.opacity = "1";
+    } else {
+        email.parentElement.classList.remove("valid");
+        document.getElementById("email-icon").style.opacity = "0";
+        isValid = false;
     }
 
-    alert("Message sent successfully!");
-    return true;
+    // Validar Mensaje
+    if (message.value.trim() !== "") {
+        message.parentElement.classList.add("valid");
+        document.getElementById("message-icon").style.opacity = "1";
+    } else {
+        message.parentElement.classList.remove("valid");
+        document.getElementById("message-icon").style.opacity = "0";
+        isValid = false;
+    }
+
+    return isValid;
 };
 
-// Validate Contact Form with Real-time Feedback
+// Envío del Formulario con Spinner de Carga
 const contactForm = document.getElementById('contact-form');
-
 contactForm.addEventListener('submit', (event) => {
     event.preventDefault();
     if (validateForm()) {
-        alert('Message sent successfully!');
-        contactForm.reset();
+        // Mostrar spinner
+        const spinner = document.getElementById('loading-spinner');
+        spinner.style.display = 'block';
+
+        // Simulación de tiempo de envío
+        setTimeout(() => {
+            alert('Thank you! Your message has been sent.');
+            spinner.style.display = 'none';
+            contactForm.reset();
+
+            // Ocultar iconos de verificación después de resetear
+            document.querySelectorAll('.form-icon').forEach(icon => {
+                icon.style.opacity = '0';
+            });
+            document.querySelectorAll('.form-group').forEach(group => {
+                group.classList.remove('valid');
+            });
+        }, 2000);
     }
 });
 
-const showError = (input, message) => {
-    const formGroup = input.parentElement;
-    formGroup.classList.add('error');
-    let error = formGroup.querySelector('.error-message');
-    if (!error) {
-        error = document.createElement('small');
-        error.className = 'error-message';
-        formGroup.appendChild(error);
-    }
-    error.textContent = message;
-};
-
-const clearError = (input) => {
-    const formGroup = input.parentElement;
-    formGroup.classList.remove('error');
-    const error = formGroup.querySelector('.error-message');
-    if (error) {
-        formGroup.removeChild(error);
-    }
-};
